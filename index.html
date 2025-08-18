@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HOME APPLIANCE</title>
+    <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
+    <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:image" content="https://shaposhvv.github.io/shop-clone/og.jpg" />
+    <!-- Relative path for GH Pages -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Header (общий) -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
+        <a class="logo" href="index.html" aria-label="HOME APPLIANCE">HOME APPLIANCE</a>
+        <nav class="nav" id="site-nav" aria-label="Главное меню">
+          <a href="catalog.html">Каталог</a>
+          <a href="#">Акции</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Сервис</a>
+          <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button search-toggle" type="button" aria-label="Поиск" aria-controls="site-search" aria-expanded="false">🔍</button>
+          <form class="search" role="search" aria-label="Поиск по сайту" id="site-search">
+            <span aria-hidden="true">🔍</span>
+            <label for="q" class="hidden-visually">Поиск</label>
+            <input id="q" type="search" placeholder="Поиск…" />
+          </form>
+          <button class="icon-button theme-toggle" type="button" aria-label="Тёмная тема" title="Переключить тему">🌙</button>
+          <button class="icon-button" aria-label="Избранное">
+            <span aria-hidden="true">♥</span>
+          </button>
+          <a href="cart.html" class="icon-button" aria-label="Корзина">
+            <span aria-hidden="true">🛒</span>
+            <span class="badge" id="cart-count" aria-live="polite">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="content" tabindex="-1">
+      <!-- Категории -->
+      <section class="section reveal">
+        <div class="container">
+          <h2>Категории</h2>
+          <div class="categories-grid">
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-ovens/600/400" alt="Духовые шкафы" />
+              <div class="title">Духовые шкафы</div>
+            </a>
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-hobs/600/400" alt="Варочные панели" />
+              <div class="title">Варочные панели</div>
+            </a>
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-fridges/600/400" alt="Холодильники" />
+              <div class="title">Холодильники</div>
+            </a>
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-dw/600/400" alt="Посудомоечные машины" />
+              <div class="title">Посудомоечные машины</div>
+            </a>
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-wm/600/400" alt="Стиральные машины" />
+              <div class="title">Стиральные машины</div>
+            </a>
+            <a class="category-card" href="catalog.html">
+              <img src="https://picsum.photos/seed/cat-vac/600/400" alt="Пылесосы" />
+              <div class="title">Пылесосы</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (общий) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-col">
+            <h4>Каталог</h4>
+            <div class="footer-links">
+              <a href="#">Духовые шкафы</a>
+              <a href="#">Варочные панели</a>
+              <a href="#">Холодильники</a>
+              <a href="#">Посудомойки</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Покупателям</h4>
+            <div class="footer-links">
+              <a href="#">Доставка и оплата</a>
+              <a href="#">Гарантия</a>
+              <a href="#">Возврат</a>
+              <a href="#">Кредит</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Компания</h4>
+            <div class="footer-links">
+              <a href="#">О нас</a>
+              <a href="#">Сервис</a>
+              <a href="contact.html">Контакты</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2025 HOME APPLIANCE</div>
+          <div>
+            <a href="#">VK</a>
+            ·
+            <a href="#">Telegram</a>
+            ·
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Relative path for GH Pages -->
+    <script src="./script.js" defer></script>
+  </body>
+  </html>
+
+

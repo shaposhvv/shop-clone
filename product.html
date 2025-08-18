@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Товар — HOME APPLIANCE</title>
+    <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
+    <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:image" content="https://shaposhvv.github.io/shop-clone/og.jpg" />
+    <!-- Relative path for GH Pages -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Header (общий) -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
+        <a class="logo" href="index.html" aria-label="HOME APPLIANCE">HOME APPLIANCE</a>
+        <nav class="nav" id="site-nav" aria-label="Главное меню">
+          <a href="catalog.html">Каталог</a>
+          <a href="#">Акции</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Сервис</a>
+          <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button search-toggle" type="button" aria-label="Поиск" aria-controls="site-search" aria-expanded="false">🔍</button>
+          <form class="search" role="search" aria-label="Поиск по сайту" id="site-search">
+            <span aria-hidden="true">🔍</span>
+            <label for="q" class="hidden-visually">Поиск</label>
+            <input id="q" type="search" placeholder="Поиск…" />
+          </form>
+          <button class="icon-button theme-toggle" type="button" aria-label="Тёмная тема" title="Переключить тему">🌙</button>
+          <button class="icon-button" aria-label="Избранное">
+            <span aria-hidden="true">♥</span>
+          </button>
+          <a href="cart.html" class="icon-button" aria-label="Корзина">
+            <span aria-hidden="true">🛒</span>
+            <span class="badge" id="cart-count" aria-live="polite">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="content" tabindex="-1">
+      <!-- Карточка товара -->
+      <section class="section reveal">
+        <div class="container">
+          <div class="product-layout">
+            <div class="product-gallery" id="product-gallery" aria-label="Галерея изображений товара">
+              <div class="product-image-frame">
+                <img id="product-main-image" src="https://picsum.photos/seed/product-a1-1/1000/750" alt="Духовой шкаф A1" />
+              </div>
+              <div class="product-thumbs" role="tablist" aria-label="Превью изображений">
+                <button class="thumb is-active" role="tab" aria-selected="true" aria-controls="img-panel-1" data-index="0">
+                  <img src="https://picsum.photos/seed/product-a1-1/160/120" alt="Фото 1" />
+                </button>
+                <button class="thumb" role="tab" aria-selected="false" aria-controls="img-panel-2" data-index="1">
+                  <img src="https://picsum.photos/seed/product-a1-2/160/120" alt="Фото 2" />
+                </button>
+                <button class="thumb" role="tab" aria-selected="false" aria-controls="img-panel-3" data-index="2">
+                  <img src="https://picsum.photos/seed/product-a1-3/160/120" alt="Фото 3" />
+                </button>
+                <button class="thumb" role="tab" aria-selected="false" aria-controls="img-panel-4" data-index="3">
+                  <img src="https://picsum.photos/seed/product-a1-4/160/120" alt="Фото 4" />
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <h1 class="product-title-lg">Духовой шкаф A1</h1>
+              <div class="product-meta">
+                <div class="sku">Арт.: <span id="product-sku">A1-2025</span></div>
+                <div class="rating" aria-label="Рейтинг 4.8 из 5">★★★★★ <span class="rating-num">4.8</span></div>
+              </div>
+              <div class="product-price">49 990 ₽</div>
+              <div class="product-short">
+                Элегантный дизайн, телескопические направляющие, конвекция, очистка паром.
+              </div>
+              <div class="product-actions">
+                <button class="button add-to-cart" id="add-to-cart-btn" type="button"
+                  data-id="a1"
+                  data-title="Духовой шкаф A1"
+                  data-price="49990"
+                  data-image="https://picsum.photos/seed/product-a1-1/800/600">В корзину</button>
+                <button class="button secondary one-click-buy" type="button">Купить в 1 клик</button>
+              </div>
+
+              <div class="product-tabs" id="product-tabs">
+                <div class="tab-nav" role="tablist" aria-label="Вкладки о товаре">
+                  <button class="tab-button is-active" role="tab" aria-selected="true" aria-controls="tab-desc" id="tab-desc-btn">Описание</button>
+                  <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-specs" id="tab-specs-btn">Характеристики</button>
+                  <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-reviews" id="tab-reviews-btn">Отзывы</button>
+                </div>
+                <div class="tab-panels">
+                  <div class="tab-panel is-active" id="tab-desc" role="tabpanel" aria-labelledby="tab-desc-btn">
+                    Современный духовой шкаф с режимами конвекции и гриля. Объём 71 л, 10 режимов нагрева, очистка паром, сенсорное управление.
+                  </div>
+                  <div class="tab-panel" id="tab-specs" role="tabpanel" aria-labelledby="tab-specs-btn" hidden>
+                    <dl class="specs">
+                      <div class="specs-row"><dt>Объём</dt><dd>71 л</dd></div>
+                      <div class="specs-row"><dt>Управление</dt><dd>Сенсорное</dd></div>
+                      <div class="specs-row"><dt>Очистка</dt><dd>Паровая</dd></div>
+                      <div class="specs-row"><dt>Мощность</dt><dd>3.5 кВт</dd></div>
+                      <div class="specs-row"><dt>Цвет</dt><dd>Нержавеющая сталь</dd></div>
+                    </dl>
+                  </div>
+                  <div class="tab-panel" id="tab-reviews" role="tabpanel" aria-labelledby="tab-reviews-btn" hidden>
+                    Пока нет отзывов. Будьте первым!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Похожие товары -->
+      <section class="section reveal">
+        <div class="container">
+          <h2>Похожие товары</h2>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-media"><img src="https://picsum.photos/seed/oven-1/800/600" alt="Духовой шкаф Miele 301" /></div>
+              <div class="product-body">
+                <div class="product-title">Духовой шкаф Miele 301</div>
+                <div class="rating" aria-label="Рейтинг 5 из 5">★★★★★</div>
+                <div class="price">39 990 ₽</div>
+                <div class="product-actions">
+                  <a class="button" href="product.html">Подробнее</a>
+                  <button class="button add-to-cart" type="button" data-id="sim1" data-title="Духовой шкаф Miele 301" data-price="39990" data-image="https://picsum.photos/seed/oven-1/800/600">В корзину</button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-media"><img src="https://picsum.photos/seed/oven-2/800/600" alt="Духовой шкаф Bosch 402" /></div>
+              <div class="product-body">
+                <div class="product-title">Духовой шкаф Bosch 402</div>
+                <div class="rating" aria-label="Рейтинг 4 из 5">★★★★☆</div>
+                <div class="price">44 990 ₽</div>
+                <div class="product-actions">
+                  <a class="button" href="product.html">Подробнее</a>
+                  <button class="button add-to-cart" type="button" data-id="sim2" data-title="Духовой шкаф Bosch 402" data-price="44990" data-image="https://picsum.photos/seed/oven-2/800/600">В корзину</button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-media"><img src="https://picsum.photos/seed/oven-3/800/600" alt="Духовой шкаф Siemens 503" /></div>
+              <div class="product-body">
+                <div class="product-title">Духовой шкаф Siemens 503</div>
+                <div class="rating" aria-label="Рейтинг 5 из 5">★★★★★</div>
+                <div class="price">54 990 ₽</div>
+                <div class="product-actions">
+                  <a class="button" href="product.html">Подробнее</a>
+                  <button class="button add-to-cart" type="button" data-id="sim3" data-title="Духовой шкаф Siemens 503" data-price="54990" data-image="https://picsum.photos/seed/oven-3/800/600">В корзину</button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-media"><img src="https://picsum.photos/seed/oven-4/800/600" alt="Духовой шкаф AEG 804" /></div>
+              <div class="product-body">
+                <div class="product-title">Духовой шкаф AEG 804</div>
+                <div class="rating" aria-label="Рейтинг 4 из 5">★★★★☆</div>
+                <div class="price">59 990 ₽</div>
+                <div class="product-actions">
+                  <a class="button" href="product.html">Подробнее</a>
+                  <button class="button add-to-cart" type="button" data-id="sim4" data-title="Духовой шкаф AEG 804" data-price="59990" data-image="https://picsum.photos/seed/oven-4/800/600">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (общий) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-col">
+            <h4>Каталог</h4>
+            <div class="footer-links">
+              <a href="#">Духовые шкафы</a>
+              <a href="#">Варочные панели</a>
+              <a href="#">Холодильники</a>
+              <a href="#">Посудомойки</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Покупателям</h4>
+            <div class="footer-links">
+              <a href="#">Доставка и оплата</a>
+              <a href="#">Гарантия</a>
+              <a href="#">Возврат</a>
+              <a href="#">Кредит</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Компания</h4>
+            <div class="footer-links">
+              <a href="#">О нас</a>
+              <a href="#">Сервис</a>
+              <a href="contact.html">Контакты</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2025 HOME APPLIANCE</div>
+          <div>
+            <a href="#">VK</a>
+            ·
+            <a href="#">Telegram</a>
+            ·
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Relative path for GH Pages -->
+    <script src="./script.js" defer></script>
+  </body>
+</html>

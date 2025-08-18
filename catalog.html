@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Каталог — HOME APPLIANCE</title>
+    <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
+    <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
+    <meta property="og:image" content="https://shaposhvv.github.io/shop-clone/og.jpg" />
+    <!-- Relative path for GH Pages -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Header (общий) -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
+        <a class="logo" href="index.html" aria-label="HOME APPLIANCE">HOME APPLIANCE</a>
+        <nav class="nav" id="site-nav" aria-label="Главное меню">
+          <a href="catalog.html" aria-current="page">Каталог</a>
+          <a href="#">Акции</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Сервис</a>
+          <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button search-toggle" type="button" aria-label="Поиск" aria-controls="site-search" aria-expanded="false">🔍</button>
+          <form class="search" role="search" aria-label="Поиск по сайту" id="site-search">
+            <span aria-hidden="true">🔍</span>
+            <label for="q" class="hidden-visually">Поиск</label>
+            <input id="q" type="search" placeholder="Поиск…" />
+          </form>
+          <button class="icon-button theme-toggle" type="button" aria-label="Тёмная тема" title="Переключить тему">🌙</button>
+          <button class="icon-button" aria-label="Избранное">
+            <span aria-hidden="true">♥</span>
+          </button>
+          <a href="cart.html" class="icon-button" aria-label="Корзина">
+            <span aria-hidden="true">🛒</span>
+            <span class="badge" id="cart-count" aria-live="polite">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="content" tabindex="-1">
+      <!-- Каталог -->
+      <section class="section reveal catalog-page">
+        <div class="container">
+          <h1>Каталог</h1>
+          <div class="catalog-layout">
+            <aside class="catalog-filters" aria-label="Фильтры">
+              <form id="filters-form">
+                <details class="filter-accordion" open>
+                  <summary>Категория</summary>
+                  <div class="filter-content filter-category">
+                    <label class="checkbox"><input type="checkbox" name="category" value="oven" /> Духовые шкафы</label>
+                    <label class="checkbox"><input type="checkbox" name="category" value="hob" /> Варочные панели</label>
+                    <label class="checkbox"><input type="checkbox" name="category" value="fridge" /> Холодильники</label>
+                    <label class="checkbox"><input type="checkbox" name="category" value="dishwasher" /> Посудомоечные машины</label>
+                    <label class="checkbox"><input type="checkbox" name="category" value="washing" /> Стиральные машины</label>
+                  </div>
+                </details>
+
+                <details class="filter-accordion" open>
+                  <summary>Цена</summary>
+                  <div class="filter-content filter-price">
+                    <div class="price-inputs">
+                      <label>
+                        <span class="label">От</span>
+                        <input type="number" id="price-input-min" min="0" step="100" value="0" />
+                      </label>
+                      <label>
+                        <span class="label">До</span>
+                        <input type="number" id="price-input-max" min="0" step="100" value="200000" />
+                      </label>
+                    </div>
+                    <div class="price-range">
+                      <input type="range" id="price-range-min" min="0" max="200000" step="1000" value="0" />
+                      <input type="range" id="price-range-max" min="0" max="200000" step="1000" value="200000" />
+                    </div>
+                  </div>
+                </details>
+
+                <details class="filter-accordion" open>
+                  <summary>Бренд</summary>
+                  <div class="filter-content filter-brand">
+                    <label class="checkbox"><input type="checkbox" name="brand" value="Miele" /> Miele</label>
+                    <label class="checkbox"><input type="checkbox" name="brand" value="Bosch" /> Bosch</label>
+                    <label class="checkbox"><input type="checkbox" name="brand" value="Siemens" /> Siemens</label>
+                    <label class="checkbox"><input type="checkbox" name="brand" value="AEG" /> AEG</label>
+                    <label class="checkbox"><input type="checkbox" name="brand" value="Samsung" /> Samsung</label>
+                    <label class="checkbox"><input type="checkbox" name="brand" value="LG" /> LG</label>
+                  </div>
+                </details>
+
+                <details class="filter-accordion" open>
+                  <summary>Наличие</summary>
+                  <div class="filter-content">
+                    <label class="switch">
+                      <input type="checkbox" id="availability-switch" />
+                      <span>Только в наличии</span>
+                    </label>
+                  </div>
+                </details>
+              </form>
+            </aside>
+
+            <div class="catalog-content">
+              <div class="catalog-toolbar">
+                <div class="toolbar-left">
+                  <div class="results-count" aria-live="polite"></div>
+                </div>
+                <div class="toolbar-right">
+                  <label>
+                    <span class="label">Сортировка</span>
+                    <select id="sort-select">
+                      <option value="popular">По популярности</option>
+                      <option value="price-asc">Цена: по возрастанию</option>
+                      <option value="price-desc">Цена: по убыванию</option>
+                      <option value="new">Новинки</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span class="label">На странице</span>
+                    <select id="per-page-select">
+                      <option value="12">12</option>
+                      <option value="24">24</option>
+                      <option value="48">48</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <div class="products-grid" id="products-list">
+                <!-- Товары будут сгенерированы скриптом -->
+              </div>
+
+              <nav class="pagination" id="pagination" aria-label="Пагинация"></nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (общий) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-col">
+            <h4>Каталог</h4>
+            <div class="footer-links">
+              <a href="#">Духовые шкафы</a>
+              <a href="#">Варочные панели</a>
+              <a href="#">Холодильники</a>
+              <a href="#">Посудомойки</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Покупателям</h4>
+            <div class="footer-links">
+              <a href="#">Доставка и оплата</a>
+              <a href="#">Гарантия</a>
+              <a href="#">Возврат</a>
+              <a href="#">Кредит</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Компания</h4>
+            <div class="footer-links">
+              <a href="#">О нас</a>
+              <a href="#">Сервис</a>
+              <a href="contact.html">Контакты</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2025 HOME APPLIANCE</div>
+          <div>
+            <a href="#">VK</a>
+            ·
+            <a href="#">Telegram</a>
+            ·
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Relative path for GH Pages -->
+    <script src="./script.js" defer></script>
+  </body>
+</html>
