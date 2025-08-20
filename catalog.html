@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- Header (общий) -->
+    <div class="page">
+      <nav class="breadcrumbs">
+        <a href="index.html">Главная</a> / 
+        <span>Каталог</span>
+      </nav>
+      <!-- Header (общий) -->
     <header class="site-header" role="banner">
       <div class="container header-inner">
         <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
@@ -35,10 +40,7 @@
           <button class="icon-button" aria-label="Избранное">
             <span aria-hidden="true">♥</span>
           </button>
-          <a href="cart.html" class="icon-button" aria-label="Корзина">
-            <span aria-hidden="true">🛒</span>
-            <span class="badge" id="cart-count" aria-live="polite">0</span>
-          </a>
+          <a href="cart.html" class="cart-link" aria-label="Корзина">Корзина <span id="cart-count" aria-live="polite">0</span></a>
         </div>
       </div>
     </header>
@@ -46,7 +48,6 @@
     <main id="content" class="content" tabindex="-1">
       <!-- Каталог -->
       <section class="section reveal catalog-page">
-        <div class="container">
           <h1>Каталог</h1>
           <div class="catalog-layout">
             <aside class="catalog-filters" aria-label="Фильтры">
@@ -108,43 +109,80 @@
 
             <div class="catalog-content">
               <div class="catalog-toolbar">
-                <div class="toolbar-left">
-                  <div class="results-count" aria-live="polite"></div>
-                </div>
-                <div class="toolbar-right">
-                  <label>
-                    <span class="label">Сортировка</span>
-                    <select id="sort-select">
-                      <option value="popular">По популярности</option>
-                      <option value="price-asc">Цена: по возрастанию</option>
-                      <option value="price-desc">Цена: по убыванию</option>
-                      <option value="new">Новинки</option>
-                    </select>
-                  </label>
-                  <label>
-                    <span class="label">На странице</span>
-                    <select id="per-page-select">
-                      <option value="12">12</option>
-                      <option value="24">24</option>
-                      <option value="48">48</option>
-                    </select>
-                  </label>
-                </div>
+                <div class="count">Найдено: 24 товара</div>
+                <select class="select" id="sort" aria-label="Сортировка">
+                  <option value="default">По умолчанию</option>
+                  <option value="price-asc">По цене (возр.)</option>
+                  <option value="price-desc">По цене (убыв.)</option>
+                </select>
               </div>
 
-              <div class="products-grid" id="products-list">
-                <!-- Товары будут сгенерированы скриптом -->
-              </div>
+              <section class="products">
+                <article class="product-card" data-id="1" data-title="Пылесос Miele Compact C2" data-price="29990" data-image="assets/img/demo1.jpg">
+                  <div class="thumb">
+                    <img src="assets/img/demo1.jpg" alt="Пылесос Miele Compact C2" />
+                  </div>
+                  <div class="content">
+                    <h2 class="title">Пылесос Miele Compact C2</h2>
+                    <div class="meta">Мощность 1200W, фильтр HEPA</div>
+                  </div>
+                  <div class="footer">
+                    <div class="price">29 990 ₽</div>
+                    <button class="btn primary btn-add" type="button">В корзину</button>
+                  </div>
+                </article>
+
+                <article class="product-card" data-id="2" data-title="Стиральная машина Miele WWD 120" data-price="89990" data-image="assets/img/demo2.jpg">
+                  <div class="thumb">
+                    <img src="assets/img/demo2.jpg" alt="Стиральная машина Miele WWD 120" />
+                  </div>
+                  <div class="content">
+                    <h2 class="title">Стиральная машина Miele WWD 120</h2>
+                    <div class="meta">7 кг, фронтальная загрузка</div>
+                  </div>
+                  <div class="footer">
+                    <div class="price">89 990 ₽</div>
+                    <button class="btn primary btn-add" type="button">В корзину</button>
+                  </div>
+                </article>
+
+                <article class="product-card" data-id="3" data-title="Холодильник Miele K 37272 iD" data-price="119990" data-image="assets/img/demo3.jpg">
+                  <div class="thumb">
+                    <img src="assets/img/demo3.jpg" alt="Холодильник Miele K 37272 iD" />
+                  </div>
+                  <div class="content">
+                    <h2 class="title">Холодильник Miele K 37272 iD</h2>
+                    <div class="meta">Встраиваемый, NoFrost</div>
+                  </div>
+                  <div class="footer">
+                    <div class="price">119 990 ₽</div>
+                    <button class="btn primary btn-add" type="button">В корзину</button>
+                  </div>
+                </article>
+
+                <article class="product-card" data-id="4" data-title="Посудомоечная машина Miele G 5022 SCU" data-price="74990" data-image="assets/img/demo4.jpg">
+                  <div class="thumb">
+                    <img src="assets/img/demo4.jpg" alt="Посудомоечная машина Miele G 5022 SCU" />
+                  </div>
+                  <div class="content">
+                    <h2 class="title">Посудомоечная машина Miele G 5022 SCU</h2>
+                    <div class="meta">60 см, 5 программ</div>
+                  </div>
+                  <div class="footer">
+                    <div class="price">74 990 ₽</div>
+                    <button class="btn primary btn-add" type="button">В корзину</button>
+                  </div>
+                </article>
+              </section>
 
               <nav class="pagination" id="pagination" aria-label="Пагинация"></nav>
             </div>
           </div>
-        </div>
       </section>
     </main>
 
-    <!-- Footer (общий) -->
-    <footer class="site-footer" role="contentinfo">
+      <!-- Footer (общий) -->
+      <footer class="site-footer" role="contentinfo">
       <div class="container">
         <div class="footer-top">
           <div class="footer-col">
@@ -185,9 +223,12 @@
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </div>
 
     <!-- Relative path for GH Pages -->
     <script src="./script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/catalog.js" defer></script>
   </body>
 </html>

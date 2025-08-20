@@ -35,10 +35,7 @@
           <button class="icon-button" aria-label="Избранное">
             <span aria-hidden="true">♥</span>
           </button>
-          <a href="cart.html" class="icon-button" aria-label="Корзина">
-            <span aria-hidden="true">🛒</span>
-            <span class="badge" id="cart-count" aria-live="polite">0</span>
-          </a>
+          <a href="cart.html" class="cart-link" aria-label="Корзина">Корзина <span id="cart-count" aria-live="polite">0</span></a>
         </div>
       </div>
     </header>
@@ -141,6 +138,7 @@
 
     <!-- Relative path for GH Pages -->
     <script src="./script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
     <script>
       (function(){
         function sanitizePhone(value) {

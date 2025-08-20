@@ -419,6 +419,7 @@
   }
 
   function createProductCard(product) {
+    // Современная карточка каталога: .thumb + .content + .footer
     var article = document.createElement('article');
     article.className = 'product-card';
     article.setAttribute('data-category', product.category);
@@ -426,15 +427,18 @@
     article.setAttribute('data-price', String(product.price));
     article.setAttribute('data-available', product.available ? 'true' : 'false');
 
+    var safeTitle = product.title.replace(/"/g, '&quot;');
     article.innerHTML = '' +
-      '<div class="product-media"><img src="' + product.image + '" alt="' + product.title.replace(/"/g, '&quot;') + '"></div>' +
-      '<div class="product-body">' +
-      '  <div class="product-title">' + product.title + '</div>' +
-      '  <div class="rating" aria-label="Рейтинг 5 из 5">★★★★★</div>' +
+      '<div class="thumb"><img src="' + product.image + '" alt="' + safeTitle + '" loading="lazy"></div>' +
+      '<div class="content">' +
+      '  <div class="title">' + product.title + '</div>' +
+      '  <div class="meta"><span class="rating" aria-label="Рейтинг 5 из 5">★★★★★</span></div>' +
+      '</div>' +
+      '<div class="footer">' +
       '  <div class="price">' + formatPriceRub(product.price) + '</div>' +
-      '  <div class="product-actions">' +
-      '    <a class="button" href="product.html">Подробнее</a>' +
-      '    <button class="button add-to-cart" type="button" data-id="p-' + product.id + '" data-title="' + product.title.replace(/"/g, '&quot;') + '" data-price="' + product.price + '" data-image="' + product.image + '">В корзину</button>' +
+      '  <div class="actions">' +
+      '    <a class="btn" href="product.html">Подробнее</a>' +
+      '    <button class="btn primary add-to-cart" type="button" data-id="p-' + product.id + '" data-title="' + safeTitle + '" data-price="' + product.price + '" data-image="' + product.image + '">В корзину</button>' +
       '  </div>' +
       '</div>';
 
@@ -476,9 +480,10 @@
     filteredProducts = arr;
   }
 
-  function renderResultsCount(total) {
+  function renderResultsCount(displayed, total) {
     if (!resultsCountEl) return;
-    resultsCountEl.textContent = total + ' товаров найдено';
+    var shown = typeof displayed === 'number' ? displayed : total;
+    resultsCountEl.textContent = 'Показано ' + shown + ' из ' + total;
   }
 
   function getPerPage() {
@@ -528,6 +533,7 @@
     pageItems.forEach(function (p) { productsListEl.appendChild(createProductCard(p)); });
     // Re-bind cart buttons for newly rendered cards
     try { if (typeof bindAddToCartButtons === 'function') bindAddToCartButtons(); } catch (_) {}
+    renderResultsCount(pageItems.length, filteredProducts.length);
   }
 
   function clampPriceInputs() {
@@ -549,7 +555,6 @@
   function update() {
     applyFilters();
     applySort();
-    renderResultsCount(filteredProducts.length);
     renderPagination(filteredProducts.length, getPerPage());
     renderProducts();
   }
@@ -587,7 +592,8 @@
     if (!productsListEl) return; // не на странице каталога
     paginationEl = document.getElementById('pagination');
     resultsCountEl = document.querySelector('.catalog-toolbar .results-count');
-    sortSelectEl = document.getElementById('sort-select');
+    // Новый select#sort, с обратной совместимостью со старым #sort-select
+    sortSelectEl = document.getElementById('sort') || document.getElementById('sort-select');
     perPageSelectEl = document.getElementById('per-page-select');
     availabilitySwitchEl = document.getElementById('availability-switch');
     priceInputMinEl = document.getElementById('price-input-min');

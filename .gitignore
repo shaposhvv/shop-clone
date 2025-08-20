@@ -1,25 +1,25 @@
-# Системные файлы macOS
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# Логи
+# Editors
+.vscode/
+.idea/
+.atom/
+
+# Builds and logs
+dist/
+build/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Конфиги редакторов
-.vscode/
-.idea/
-.atom/
-
-# Python/Node history
-.python_history
+# Dependencies and histories
 node_modules/
-dist/
-build/
+.python_history
 
-# GitHub Desktop и прочее
+# Misc
 *.bak
 *.swp
