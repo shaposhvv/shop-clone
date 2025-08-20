@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Каталог — HOME APPLIANCE</title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
     <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
     <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
     <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
@@ -109,72 +110,16 @@
 
             <div class="catalog-content">
               <div class="catalog-toolbar">
-                <div class="count">Найдено: 24 товара</div>
+                <div class="count results-count">Показано 0 из 0</div>
                 <select class="select" id="sort" aria-label="Сортировка">
-                  <option value="default">По умолчанию</option>
+                  <option value="popular">По популярности</option>
+                  <option value="new">По новизне</option>
                   <option value="price-asc">По цене (возр.)</option>
                   <option value="price-desc">По цене (убыв.)</option>
                 </select>
               </div>
 
-              <section class="products">
-                <article class="product-card" data-id="1" data-title="Пылесос Miele Compact C2" data-price="29990" data-image="assets/img/demo1.jpg">
-                  <div class="thumb">
-                    <img src="assets/img/demo1.jpg" alt="Пылесос Miele Compact C2" />
-                  </div>
-                  <div class="content">
-                    <h2 class="title">Пылесос Miele Compact C2</h2>
-                    <div class="meta">Мощность 1200W, фильтр HEPA</div>
-                  </div>
-                  <div class="footer">
-                    <div class="price">29 990 ₽</div>
-                    <button class="btn primary btn-add" type="button">В корзину</button>
-                  </div>
-                </article>
-
-                <article class="product-card" data-id="2" data-title="Стиральная машина Miele WWD 120" data-price="89990" data-image="assets/img/demo2.jpg">
-                  <div class="thumb">
-                    <img src="assets/img/demo2.jpg" alt="Стиральная машина Miele WWD 120" />
-                  </div>
-                  <div class="content">
-                    <h2 class="title">Стиральная машина Miele WWD 120</h2>
-                    <div class="meta">7 кг, фронтальная загрузка</div>
-                  </div>
-                  <div class="footer">
-                    <div class="price">89 990 ₽</div>
-                    <button class="btn primary btn-add" type="button">В корзину</button>
-                  </div>
-                </article>
-
-                <article class="product-card" data-id="3" data-title="Холодильник Miele K 37272 iD" data-price="119990" data-image="assets/img/demo3.jpg">
-                  <div class="thumb">
-                    <img src="assets/img/demo3.jpg" alt="Холодильник Miele K 37272 iD" />
-                  </div>
-                  <div class="content">
-                    <h2 class="title">Холодильник Miele K 37272 iD</h2>
-                    <div class="meta">Встраиваемый, NoFrost</div>
-                  </div>
-                  <div class="footer">
-                    <div class="price">119 990 ₽</div>
-                    <button class="btn primary btn-add" type="button">В корзину</button>
-                  </div>
-                </article>
-
-                <article class="product-card" data-id="4" data-title="Посудомоечная машина Miele G 5022 SCU" data-price="74990" data-image="assets/img/demo4.jpg">
-                  <div class="thumb">
-                    <img src="assets/img/demo4.jpg" alt="Посудомоечная машина Miele G 5022 SCU" />
-                  </div>
-                  <div class="content">
-                    <h2 class="title">Посудомоечная машина Miele G 5022 SCU</h2>
-                    <div class="meta">60 см, 5 программ</div>
-                  </div>
-                  <div class="footer">
-                    <div class="price">74 990 ₽</div>
-                    <button class="btn primary btn-add" type="button">В корзину</button>
-                  </div>
-                </article>
-              </section>
-
+              <section class="products" id="products-list"></section>
               <nav class="pagination" id="pagination" aria-label="Пагинация"></nav>
             </div>
           </div>
@@ -228,7 +173,5 @@
 
     <!-- Relative path for GH Pages -->
     <script src="./script.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/catalog.js" defer></script>
   </body>
 </html>

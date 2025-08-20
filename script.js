@@ -230,10 +230,10 @@
     var mainImg = document.getElementById('product-main-image');
     var thumbs = gallery.querySelectorAll('.thumb');
     var images = [
-      'https://picsum.photos/seed/product-a1-1/1000/750',
-      'https://picsum.photos/seed/product-a1-2/1000/750',
-      'https://picsum.photos/seed/product-a1-3/1000/750',
-      'https://picsum.photos/seed/product-a1-4/1000/750'
+      './assets/images/product1.jpg',
+      './assets/images/hero1.jpg',
+      './assets/images/hero2.jpg',
+      './assets/images/hero3.jpg'
     ];
     var index = 0;
 
@@ -347,6 +347,20 @@
         }
       });
     }
+
+    // Header search submit -> redirect to catalog with query param
+    if (searchForm) {
+      searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var qInput = searchForm.querySelector('input[type="search"]');
+        var qVal = qInput ? (qInput.value || '').trim() : '';
+        var url = 'catalog.html' + (qVal ? ('?q=' + encodeURIComponent(qVal)) : '');
+        window.location.href = url;
+      });
+    }
+
+    // Render cart page if present
+    renderCartPage();
   });
 })();
 
@@ -394,7 +408,13 @@
         washing: 'Стиральная машина'
       };
       var title = titleMap[c] + ' ' + b + ' ' + (100 + (i % 900));
-      var imgSeed = c + '-' + b + '-' + i;
+      var imageByCategory = {
+        oven: './assets/images/hero1.jpg',
+        hob: './assets/images/hero2.jpg',
+        fridge: './assets/images/hero3.jpg',
+        dishwasher: './assets/images/cat1.jpg',
+        washing: './assets/images/cat2.jpg'
+      };
       items.push({
         id: i,
         title: title,
@@ -404,7 +424,7 @@
         available: available,
         createdAt: createdAt,
         popularity: popularity,
-        image: 'https://picsum.photos/seed/' + encodeURIComponent(imgSeed) + '/800/600'
+        image: imageByCategory[c] || './assets/images/cat3.jpg'
       });
     }
     return items;
@@ -602,11 +622,97 @@
     priceRangeMaxEl = document.getElementById('price-range-max');
 
     allProducts = generateProducts(72);
+    // Search by ?q= from URL
+    var q = '';
+    try { q = new URLSearchParams(window.location.search).get('q') || ''; } catch (_) { q = ''; }
     filteredProducts = allProducts.slice();
+    if (q) {
+      var qLower = q.toLowerCase();
+      filteredProducts = filteredProducts.filter(function (p) { return p.title.toLowerCase().indexOf(qLower) !== -1; });
+      var headerSearchInput = document.querySelector('#site-search input[type="search"]');
+      if (headerSearchInput) headerSearchInput.value = q;
+    }
     clampPriceInputs();
     bindFilterEvents();
     update();
   }
 
   document.addEventListener('DOMContentLoaded', initCatalog);
+})();
+
+// -----------------------
+// Cart page rendering
+// -----------------------
+(function(){
+  function formatRub(n){ try { return Number(n||0).toLocaleString('ru-RU') + ' ₽'; } catch(_) { return String(n||0) + ' ₽'; } }
+
+  function readCart(){
+    try { var raw = localStorage.getItem('cart'); return raw ? (JSON.parse(raw)||[]) : []; } catch(_) { return []; }
+  }
+  function writeCart(items){ try { localStorage.setItem('cart', JSON.stringify(items||[])); } catch(_) {}
+    try { var badge = document.getElementById('cart-count'); if (badge) { var qty = (items||[]).reduce(function(s,it){return s + (parseInt(it.qty||1,10)||1);},0); badge.textContent = String(qty); } } catch(_){}
+  }
+
+  function renderCartPage(){
+    var listEl = document.getElementById('cart-list');
+    var totalEl = document.getElementById('cart-total');
+    if (!listEl || !totalEl) return;
+
+    var items = readCart();
+    listEl.innerHTML = '';
+    var total = 0;
+
+    if (!items.length) {
+      var empty = document.createElement('div');
+      empty.textContent = 'Ваша корзина пуста.';
+      empty.className = 'cart-empty';
+      listEl.appendChild(empty);
+      totalEl.textContent = formatRub(0);
+      return;
+    }
+
+    items.forEach(function(it, idx){
+      var row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = ''+
+        '<div class="thumb">'+ (it.image ? ('<img alt="'+ (it.title||'') +'" src="'+ it.image +'"/>') : '') +'</div>'+
+        '<div class="info">'+
+        '  <div class="title">'+ (it.title||'Товар') +'</div>'+
+        '  <div class="meta">'+ formatRub(it.price||0) +'</div>'+
+        '</div>'+
+        '<div class="qty">'+
+        '  <button class="qty-btn dec" type="button" aria-label="Уменьшить">−</button>'+
+        '  <span class="q">'+ (it.qty||1) +'</span>'+
+        '  <button class="qty-btn inc" type="button" aria-label="Увеличить">+</button>'+
+        '  <button class="qty-btn rm" type="button" aria-label="Удалить">✕</button>'+
+        '</div>';
+      listEl.appendChild(row);
+
+      total += (parseInt(it.qty||1,10)||1) * (parseInt(it.price||0,10)||0);
+
+      var dec = row.querySelector('.dec');
+      var inc = row.querySelector('.inc');
+      var rm = row.querySelector('.rm');
+      var qEl = row.querySelector('.q');
+      function updateQty(delta){
+        var arr = readCart();
+        var cur = arr[idx];
+        if (!cur) return;
+        var next = (parseInt(cur.qty||1,10)||1) + delta;
+        if (next <= 0) { arr.splice(idx,1); } else { cur.qty = next; }
+        writeCart(arr);
+        renderCartPage();
+      }
+      if (dec) dec.addEventListener('click', function(){ updateQty(-1); });
+      if (inc) inc.addEventListener('click', function(){ updateQty(1); });
+      if (rm) rm.addEventListener('click', function(){ updateQty(-9999); });
+    });
+
+    totalEl.textContent = formatRub(total);
+
+    var checkoutBtn = document.getElementById('cart-checkout');
+    if (checkoutBtn) checkoutBtn.onclick = function(){ alert('Оформление заказа: демо.'); };
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCartPage);
 })();

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HOME APPLIANCE</title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
     <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
     <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
     <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
@@ -41,35 +42,99 @@
     </header>
 
     <main id="content" class="content" tabindex="-1">
+      <!-- Hero slider -->
+      <section class="section hero reveal">
+        <div class="container">
+          <div class="hero-slider" aria-label="Промо слайды">
+            <div class="slides">
+              <div class="slide">
+                <img src="./assets/images/hero1.jpg" alt="Техника для кухни Miele — премиальное качество" />
+                <div class="slide-overlay" aria-hidden="true"></div>
+                <div class="slide-content">
+                  <h3>Премиальная техника для вашего дома</h3>
+                  <p>Инновации, дизайн и надежность — выберите лучшее.</p>
+                  <a class="button" href="catalog.html">Перейти в каталог</a>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="./assets/images/hero2.jpg" alt="Скидки и акции на технику" />
+                <div class="slide-overlay" aria-hidden="true"></div>
+                <div class="slide-content">
+                  <h3>Специальные предложения</h3>
+                  <p>Актуальные акции и выгодные цены на популярные модели.</p>
+                  <a class="button" href="catalog.html">Смотреть</a>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="./assets/images/hero3.jpg" alt="Немецкое качество в каждой детали" />
+                <div class="slide-overlay" aria-hidden="true"></div>
+                <div class="slide-content">
+                  <h3>Немецкое качество в каждой детали</h3>
+                  <p>Техника, созданная для долгих лет безупречной работы.</p>
+                  <a class="button" href="catalog.html">Выбрать технику</a>
+                </div>
+              </div>
+            </div>
+            <button class="arrow prev" type="button" aria-label="Предыдущий слайд">‹</button>
+            <button class="arrow next" type="button" aria-label="Следующий слайд">›</button>
+            <div class="slider-controls">
+              <div class="dots" aria-label="Индикаторы слайдов"></div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Категории -->
       <section class="section reveal">
         <div class="container">
           <h2>Категории</h2>
           <div class="categories-grid">
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-ovens/600/400" alt="Духовые шкафы" />
+              <img src="./assets/images/cat1.jpg" alt="Духовые шкафы" />
               <div class="title">Духовые шкафы</div>
             </a>
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-hobs/600/400" alt="Варочные панели" />
+              <img src="./assets/images/cat2.jpg" alt="Варочные панели" />
               <div class="title">Варочные панели</div>
             </a>
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-fridges/600/400" alt="Холодильники" />
+              <img src="./assets/images/cat3.jpg" alt="Холодильники" />
               <div class="title">Холодильники</div>
             </a>
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-dw/600/400" alt="Посудомоечные машины" />
+              <img src="./assets/images/hero1.jpg" alt="Посудомоечные машины" />
               <div class="title">Посудомоечные машины</div>
             </a>
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-wm/600/400" alt="Стиральные машины" />
+              <img src="./assets/images/hero2.jpg" alt="Стиральные машины" />
               <div class="title">Стиральные машины</div>
             </a>
             <a class="category-card" href="catalog.html">
-              <img src="https://picsum.photos/seed/cat-vac/600/400" alt="Пылесосы" />
+              <img src="./assets/images/hero3.jpg" alt="Пылесосы" />
               <div class="title">Пылесосы</div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Популярные товары -->
+      <section class="section reveal">
+        <div class="container">
+          <h2>Популярные товары</h2>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="thumb"><img src="./assets/images/product1.jpg" alt="Пылесос Miele Compact C2" /></div>
+              <div class="content">
+                <div class="title">Пылесос Miele Compact C2</div>
+                <div class="meta">Мощность 1200W, фильтр HEPA</div>
+              </div>
+              <div class="footer">
+                <div class="price">29 990 ₽</div>
+                <div class="actions">
+                  <a class="btn" href="product.html">Подробнее</a>
+                  <button class="btn primary add-to-cart" type="button" data-id="hp1" data-title="Пылесос Miele Compact C2" data-price="29990" data-image="./assets/images/product1.jpg">В корзину</button>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -121,7 +186,6 @@
 
     <!-- Relative path for GH Pages -->
     <script src="./script.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
   </body>
   </html>
 
