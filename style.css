@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #f7f7f8;
-  --text: #111214;
-  --muted: #6b6f76;
-  --accent: #e31d1a;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #c7000b;
   --gap: 16px;
   --radius-sm: 8px;
-  --header-bg: rgba(10, 12, 14, 0.7);
+  --header-bg: #ffffff;
   --card-bg: #ffffff;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 2px 8px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 10px 30px rgba(17, 24, 39, 0.12);
+  --border: #e5e7eb;
   --maxw: 1200px;
 }
 
@@ -37,7 +40,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, Ubuntu, Cantarell, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, Ubuntu, Cantarell, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
   line-height: 1.5;
 }
 
@@ -121,11 +124,9 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: saturate(160%) blur(10px);
-  -webkit-backdrop-filter: saturate(160%) blur(10px);
   background: var(--header-bg);
-  color: #f2f4f7;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
@@ -180,13 +181,13 @@ a:hover {
 }
 
 .nav a {
-  color: #e7eaf0;
-  padding: 8px 10px;
-  border-radius: 8px;
+  color: #1f2937;
+  padding: 10px 12px;
+  border-radius: 6px;
 }
 
 .nav a:hover {
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -206,22 +207,20 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 8px 6px 10px;
+  background: #f3f4f6;
+  border: 1px solid var(--border);
+  padding: 6px 10px;
   border-radius: 999px;
 }
 
 .search input {
   background: transparent;
   border: none;
-  color: #fff;
+  color: #111827;
   width: 160px;
 }
 
-.search input::placeholder {
-  color: #cbd1db;
-}
+.search input::placeholder { color: #9ca3af; }
 
 .icon-button {
   position: relative;
@@ -231,16 +230,14 @@ a:hover {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f3f4f6;
+  border: 1px solid var(--border);
   cursor: pointer;
-  color: #fff;
+  color: #111827;
   transition: transform 0.12s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.icon-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
+.icon-button:hover { background: #e5e7eb; }
 
 .icon-button:active {
   transform: scale(0.98);
@@ -312,16 +309,16 @@ main {
 
 .slide img {
   width: 100%;
-  height: 60vh;
-  min-height: 420px;
-  max-height: 680px;
+  height: min(70vh, 760px);
+  min-height: 480px;
+  max-height: 760px;
   object-fit: cover;
 }
 
 .slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
 }
 
 .slide-content {
@@ -381,8 +378,8 @@ main {
   height: 40px;
   border-radius: 999px;
   border: none;
-  background: rgba(17, 18, 20, 0.6);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
   cursor: pointer;
 }
 
@@ -401,7 +398,7 @@ main {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
   transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
@@ -456,14 +453,14 @@ main {
 .catalog-filters {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
   padding: 14px;
   position: sticky;
   top: 84px;
 }
 
 .filter-accordion {
-  border: 1px solid #e6e9ef;
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: #fff;
   margin-bottom: 10px;
@@ -495,7 +492,7 @@ html.theme-dark .price-inputs input { background: #0f1115; color: var(--text); b
 .catalog-toolbar {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
   margin-bottom: 12px;
   padding: 10px 12px;
   display: flex;
@@ -526,7 +523,7 @@ html.theme-dark .catalog-toolbar select { background: #0f1115; color: var(--text
 .page-btn {
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid #e1e4ea;
+  border: 1px solid var(--border);
   background: #fff;
   cursor: pointer;
 }
@@ -572,13 +569,13 @@ html.theme-dark .page-btn { background: #0f1115; color: var(--text); border-colo
 /* btn styles moved to Catalog UI block below */
 
 /* aspect-ratio и object-fit для всех превью */
-.thumb { aspect-ratio: 4 / 3; background: #e9ecf1; overflow: hidden; border-top-left-radius: var(--radius-md); border-top-right-radius: var(--radius-md); }
+.thumb { aspect-ratio: 4 / 3; background: #f3f4f6; overflow: hidden; border-top-left-radius: var(--radius-md); border-top-right-radius: var(--radius-md); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Footer */
 .site-footer {
-  background: #0c0f13;
-  color: #c6cbd4;
+  background: #f8fafc;
+  color: #374151;
   padding: 32px 0 20px;
   margin-top: 24px;
 }
@@ -705,7 +702,7 @@ html.theme-dark .specs-row { border-bottom-color: #1d212a; }
 }
 
 /* Cookie bar */
-.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1100; background: #0f1115; color: #cbd2dd; border-top: 1px solid rgba(255,255,255,0.08); display:none; }
+.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1100; background: #ffffff; color: #374151; border-top: 1px solid var(--border); display:none; }
 .cookie-inner { display:flex; gap: 12px; align-items:center; justify-content: space-between; padding: 10px 16px; max-width: var(--maxw); margin: 0 auto; }
 .cookie-bar.show { display:block; }
 
