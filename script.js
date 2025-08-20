@@ -79,6 +79,9 @@
     });
   }
 
+  // Expose binder for re-binding after dynamic renders
+  try { window.bindAddToCartButtons = bindAddToCartButtons; } catch(_) {}
+
   // Hero slider with autoplay, dots, arrows, and swipe
   function initHeroSlider() {
     var slider = document.querySelector('.hero-slider');
@@ -611,7 +614,7 @@
     var pageItems = filteredProducts.slice(start, start + perPage);
     pageItems.forEach(function (p) { productsListEl.appendChild(createProductCard(p)); });
     // Re-bind cart buttons for newly rendered cards
-    try { if (typeof bindAddToCartButtons === 'function') bindAddToCartButtons(); } catch (_) {}
+    try { if (window.bindAddToCartButtons) window.bindAddToCartButtons(); } catch (_) {}
     renderResultsCount(pageItems.length, filteredProducts.length);
   }
 

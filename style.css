@@ -802,7 +802,7 @@ html.theme-dark .specs-row { border-bottom-color: #1d212a; }
 /* Превью */
 .product-card .thumb{
   position: relative;
-  aspect-ratio: 1/1;         /* или 4/3 */
+  aspect-ratio: 4/3;
   background: #101215;
 }
 .product-card .thumb img{
