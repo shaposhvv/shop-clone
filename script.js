@@ -461,7 +461,18 @@
       { category: 'oven',       title: 'Духовой шкаф Miele H 7164 BP',           price: 189990 },
       { category: 'hob',        title: 'Варочная панель Miele KM 3034-1',       price: 89990 },
       { category: 'fridge',     title: 'Холодильник Miele KFN 29142 D',          price: 169990 },
-      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5210 SC',   price: 149990 }
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5210 SC',   price: 149990 },
+      // дополнительные позиции для лучшей заполненности каталога
+      { category: 'oven',       title: 'Духовой шкаф Miele H 2265-1 B ACTIVE',   price: 94990 },
+      { category: 'oven',       title: 'Духовой шкаф Miele H 7460 BP',           price: 209990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 6529 FR',       price: 109990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 7200 FR',       price: 114990 },
+      { category: 'fridge',     title: 'Холодильник Miele K 7733 E',             price: 219990 },
+      { category: 'fridge',     title: 'Холодильник Miele KFN 37682 iD',         price: 249990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5212 SCU',  price: 164990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 7410 SCU',  price: 199990 },
+      { category: 'washing',    title: 'Стиральная машина Miele WWD 660 WPS',    price: 169990 },
+      { category: 'washing',    title: 'Стиральная машина Miele WWI 660 WPS',    price: 199990 }
     ];
     return list.map(function(p, i){
       return {
