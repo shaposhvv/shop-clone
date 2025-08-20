@@ -359,6 +359,47 @@
       });
     }
 
+    // Cookie consent
+    (function(){
+      var bar = document.getElementById('cookie-bar');
+      var btn = document.getElementById('cookie-accept');
+      if (bar && btn) {
+        var accepted = false;
+        try { accepted = localStorage.getItem('cookieAccepted') === '1'; } catch(_) {}
+        if (!accepted) bar.classList.add('show');
+        btn.addEventListener('click', function(){
+          try { localStorage.setItem('cookieAccepted', '1'); } catch(_) {}
+          bar.classList.remove('show');
+        });
+      }
+    })();
+
+    // Mega menu interactions
+    (function(){
+      var items = document.querySelectorAll('.mega-item');
+      if (!items || items.length === 0) return;
+      var panels = {
+        laundry: document.getElementById('mega-laundry'),
+        kitchen: document.getElementById('mega-kitchen'),
+        home: document.getElementById('mega-home'),
+        chem: document.getElementById('mega-chem'),
+        pro: document.getElementById('mega-pro')
+      };
+      function closeAll(){
+        Object.keys(panels).forEach(function(k){ var p = panels[k]; if (p) p.classList.remove('open'); });
+      }
+      items.forEach(function(it){
+        it.addEventListener('mouseenter', function(){
+          closeAll();
+          var key = it.getAttribute('data-mega');
+          var panel = panels[key];
+          if (panel) panel.classList.add('open');
+        });
+      });
+      var megaBar = document.querySelector('.mega-bar');
+      if (megaBar) megaBar.addEventListener('mouseleave', closeAll);
+    })();
+
     // Render cart page if present
     renderCartPage();
   });

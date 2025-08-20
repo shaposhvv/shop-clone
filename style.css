@@ -136,6 +136,34 @@ a:hover {
   min-height: 64px;
 }
 
+/* Header top bar */
+.header-top { background: #0a0c0e; color: #c8cdd6; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.header-top-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 6px 0; }
+.top-links { display:flex; gap:10px; flex-wrap:wrap; }
+.top-links a { color:#c8cdd6; opacity:0.9; }
+.top-links a:hover { opacity:1; text-decoration:none; }
+.city-select { background:none; border:none; color:#e7eaf0; cursor:pointer; margin-right:10px; }
+.phones { display:flex; gap:8px; align-items:center; }
+.phones a { color:#e7eaf0; }
+.worktime { color:#9aa1ac; }
+
+/* Mega menu */
+.mega-bar { background:#0f1216; color:#e7eaf0; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+.mega-bar-inner { display:flex; gap:18px; align-items:center; height:44px; }
+.mega-item { cursor:pointer; padding:8px 10px; border-radius:8px; }
+.mega-item:hover { background: rgba(255,255,255,0.06); }
+.mega-panels { position:relative; }
+.mega-panel { display:none; position:absolute; left:0; right:0; background: var(--card-bg); border-bottom-left-radius: var(--radius-lg); border-bottom-right-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 16px; }
+.mega-panel.open { display:block; }
+.mega-cols { display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; }
+.mega-panel .col-title { font-weight:700; margin-bottom:8px; }
+.mega-panel a { display:block; padding:6px 0; color:inherit; opacity:0.9; }
+.mega-panel a:hover { opacity:1; text-decoration:none; }
+
+/* Counters */
+.counter-link { position:relative; }
+.counter-link .badge { top: -6px; right: -6px; }
+
 /* Make header a positioning context for dropdowns on mobile */
 .header-inner { position: relative; }
 
@@ -675,6 +703,11 @@ html.theme-dark .specs-row { border-bottom-color: #1d212a; }
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* Cookie bar */
+.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1100; background: #0f1115; color: #cbd2dd; border-top: 1px solid rgba(255,255,255,0.08); display:none; }
+.cookie-inner { display:flex; gap: 12px; align-items:center; justify-content: space-between; padding: 10px 16px; max-width: var(--maxw); margin: 0 auto; }
+.cookie-bar.show { display:block; }
 
 /* Responsive header behavior */
 @media (max-width: 599.98px) {

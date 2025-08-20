@@ -15,6 +15,32 @@
   <body>
     <!-- Header (общий) -->
     <header class="site-header" role="banner">
+      <div class="header-top">
+        <div class="container header-top-inner">
+          <div class="ht-left">
+            <button class="city-select" type="button" aria-label="Выбрать город">Москва</button>
+            <nav class="top-links" aria-label="Верхнее меню">
+              <a href="#">Шоу-рум</a>
+              <a href="#">Дизайнерам</a>
+              <a href="#">Акции</a>
+              <a href="#">Рейтинги</a>
+              <a href="#">Доставка и оплата</a>
+              <a href="#">Подключение</a>
+              <a href="#">Гарантия</a>
+              <a href="#">Инструкции</a>
+              <a href="contact.html" aria-current="page">Контакты</a>
+            </nav>
+          </div>
+          <div class="ht-right">
+            <div class="phones">
+              <a href="tel:+74955404475">+7 495 540 44 75</a>
+              <span class="sep">·</span>
+              <a href="tel:+78007756731">+7 800 775 67 31</a>
+            </div>
+            <div class="worktime">Пн‑Пт 8:00–22:00 · Сб‑Вс 9:00–22:00</div>
+          </div>
+        </div>
+      </div>
       <div class="container header-inner">
         <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
         <a class="logo" href="index.html" aria-label="HOME APPLIANCE">HOME APPLIANCE</a>
@@ -33,10 +59,25 @@
             <input id="q" type="search" placeholder="Поиск…" />
           </form>
           <button class="icon-button theme-toggle" type="button" aria-label="Тёмная тема" title="Переключить тему">🌙</button>
-          <button class="icon-button" aria-label="Избранное">
-            <span aria-hidden="true">♥</span>
-          </button>
+          <a class="icon-button counter-link" aria-label="Сравнение" href="#"><span aria-hidden="true">⇄</span><span class="badge" id="cmp-count">0</span></a>
+          <a class="icon-button counter-link" aria-label="Избранное" href="#"><span aria-hidden="true">♥</span><span class="badge" id="fav-count">0</span></a>
           <a href="cart.html" class="cart-link" aria-label="Корзина">Корзина <span id="cart-count" aria-live="polite">0</span></a>
+        </div>
+      </div>
+      <div class="mega-bar" role="navigation" aria-label="Категории">
+        <div class="container mega-bar-inner">
+          <div class="mega-item" data-mega="laundry">Уход за бельём</div>
+          <div class="mega-item" data-mega="kitchen">Техника для кухни</div>
+          <div class="mega-item" data-mega="home">Техника для дома</div>
+          <div class="mega-item" data-mega="chem">Аксессуары и химия</div>
+          <div class="mega-item" data-meга="pro">Профессиональная техника</div>
+        </div>
+        <div class="mega-panels">
+          <div class="mega-panel" id="mega-laundry"></div>
+          <div class="mega-panel" id="mega-kitchen"></div>
+          <div class="mega-panel" id="mega-home"></div>
+          <div class="mega-panel" id="mega-chem"></div>
+          <div class="mega-panel" id="mega-pro"></div>
         </div>
       </div>
     </header>
