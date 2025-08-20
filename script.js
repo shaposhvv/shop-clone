@@ -425,50 +425,57 @@
   var currentPage = 1;
 
   var categories = ['oven', 'hob', 'fridge', 'dishwasher', 'washing'];
-  var brands = ['Miele', 'Bosch', 'Siemens', 'AEG', 'Samsung', 'LG'];
+  var brands = ['Miele'];
 
-  function rand(seed) {
-    var x = Math.sin(seed) * 10000;
-    return x - Math.floor(x);
-  }
-
-  function generateProducts(count) {
-    var items = [];
-    for (var i = 1; i <= count; i++) {
-      var c = categories[i % categories.length];
-      var b = brands[i % brands.length];
-      var priceBase = 14990 + Math.floor(rand(i) * 180000);
-      var available = rand(i * 7) > 0.25; // ~75% в наличии
-      var createdAt = Date.now() - Math.floor(rand(i * 13) * 1000 * 60 * 60 * 24 * 180); // до 6 мес
-      var popularity = Math.floor(rand(i * 17) * 1000);
-      var titleMap = {
-        oven: 'Духовой шкаф',
-        hob: 'Варочная панель',
-        fridge: 'Холодильник',
-        dishwasher: 'Посудомоечная машина',
-        washing: 'Стиральная машина'
+  function generateProducts() {
+    var imagePool = [
+      './assets/images/product1.jpg',
+      './assets/images/hero1.jpg',
+      './assets/images/hero2.jpg',
+      './assets/images/hero3.jpg',
+      './assets/images/cat1.jpg',
+      './assets/images/cat2.jpg',
+      './assets/images/cat3.jpg'
+    ];
+    var list = [
+      { category: 'oven',       title: 'Духовой шкаф Miele H 7860 BP',           price: 299990 },
+      { category: 'oven',       title: 'Духовой шкаф Miele H 7464 BP',           price: 229990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 7201 FR',       price: 119990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 7464 FR',       price: 139990 },
+      { category: 'fridge',     title: 'Холодильник Miele K 37272 iD',           price: 199990 },
+      { category: 'fridge',     title: 'Холодильник Miele KFN 29162 D ws',       price: 179990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5022 SCU',  price: 149990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 7110 SC',   price: 189990 },
+      { category: 'washing',    title: 'Стиральная машина Miele WWD 120',        price: 129990 },
+      { category: 'washing',    title: 'Стиральная машина Miele WTR 860 WPM',    price: 219990 },
+      { category: 'oven',       title: 'Духовой шкаф Miele H 2267-1 B ACTIVE',   price: 99990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 6520 FR',       price: 99990 },
+      { category: 'fridge',     title: 'Холодильник Miele K 28202 D ws',         price: 134990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5212 SC',   price: 159990 },
+      { category: 'washing',    title: 'Стиральная машина Miele W1 Classic',     price: 109990 },
+      { category: 'oven',       title: 'Духовой шкаф Miele H 2760 B',            price: 119990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 7897 FL',       price: 299990 },
+      { category: 'fridge',     title: 'Холодильник Miele KFN 28132 D ws',       price: 149990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5000 SC',   price: 129990 },
+      { category: 'washing',    title: 'Стиральная машина Miele WWG 660',        price: 189990 },
+      { category: 'oven',       title: 'Духовой шкаф Miele H 7164 BP',           price: 189990 },
+      { category: 'hob',        title: 'Варочная панель Miele KM 3034-1',       price: 89990 },
+      { category: 'fridge',     title: 'Холодильник Miele KFN 29142 D',          price: 169990 },
+      { category: 'dishwasher', title: 'Посудомоечная машина Miele G 5210 SC',   price: 149990 }
+    ];
+    return list.map(function(p, i){
+      return {
+        id: i + 1,
+        title: p.title,
+        category: p.category,
+        brand: 'Miele',
+        price: p.price,
+        available: true,
+        createdAt: Date.now() - (i * 8640000),
+        popularity: 1000 - i * 10,
+        image: imagePool[i % imagePool.length]
       };
-      var title = titleMap[c] + ' ' + b + ' ' + (100 + (i % 900));
-      var imageByCategory = {
-        oven: './assets/images/hero1.jpg',
-        hob: './assets/images/hero2.jpg',
-        fridge: './assets/images/hero3.jpg',
-        dishwasher: './assets/images/cat1.jpg',
-        washing: './assets/images/cat2.jpg'
-      };
-      items.push({
-        id: i,
-        title: title,
-        category: c,
-        brand: b,
-        price: priceBase,
-        available: available,
-        createdAt: createdAt,
-        popularity: popularity,
-        image: imageByCategory[c] || './assets/images/cat3.jpg'
-      });
-    }
-    return items;
+    });
   }
 
   function formatPriceRub(num) {
@@ -662,7 +669,7 @@
     priceRangeMinEl = document.getElementById('price-range-min');
     priceRangeMaxEl = document.getElementById('price-range-max');
 
-    allProducts = generateProducts(72);
+    allProducts = generateProducts();
     // Search by ?q= from URL
     var q = '';
     try { q = new URLSearchParams(window.location.search).get('q') || ''; } catch (_) { q = ''; }
