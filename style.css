@@ -164,6 +164,30 @@ a:hover {
 .mega-panel a { display:block; padding:6px 0; color:inherit; opacity:0.9; }
 .mega-panel a:hover { opacity:1; text-decoration:none; }
 
+/* mega-menu contrast fix */
+.mega-panel { 
+  background: rgba(255,255,255,0.92); 
+  color: #1a1a1a; 
+  border: 1px solid rgba(0,0,0,0.08); 
+  border-radius: 12px; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
+  -webkit-backdrop-filter: blur(12px) saturate(1.05); 
+  backdrop-filter: blur(12px) saturate(1.05);
+  z-index: 30;
+}
+.mega-panel a { color: #1a1a1a; }
+.mega-panel a:hover { color: #e30613; }
+.mega-panel, .mega-panel * { opacity: 1; mix-blend-mode: normal; }
+
+@media (prefers-color-scheme: dark) { /* mega-menu contrast fix */
+  .mega-panel { background: rgba(0,0,0,0.86); color: #f2f2f2; border-color: rgba(255,255,255,0.12); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+  .mega-panel a { color: #f2f2f2; }
+  .mega-panel a:hover { color: #e30613; }
+}
+html.theme-dark .mega-panel { background: rgba(0,0,0,0.86); color:#f2f2f2; border-color: rgba(255,255,255,0.12); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+html.theme-dark .mega-panel a { color:#f2f2f2; }
+html.theme-dark .mega-panel a:hover { color:#e30613; }
+
 /* Counters */
 .counter-link { position:relative; }
 .counter-link .badge { top: -6px; right: -6px; }
@@ -278,6 +302,7 @@ main {
 /* Hero slider */
 .hero {
   padding-top: 0;
+  position: relative; /* mega-menu contrast fix: anchor for dim overlay */
 }
 
 /* Scroll reveal */
@@ -298,6 +323,9 @@ main {
   overflow: hidden;
   box-shadow: var(--shadow-md);
 }
+
+/* mega-menu contrast fix: dim hero when menu open */
+body.menu-open .hero::before { content:""; position:absolute; inset:0; background: rgba(0,0,0,0.25); z-index: 1; }
 
 .slides {
   display: flex;
@@ -483,7 +511,7 @@ main {
 .rating-track { align-items: stretch; }
 .rating-card { position: relative; display: block; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; box-shadow: 0 6px 16px rgba(0,0,0,.06); }
 .rating-card img { width:100%; height: 160px; object-fit: cover; display:block; }
-.rating-card::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(181,18,27,0.7), rgba(0,0,0,0.0) 60%); mix-blend: multiply; }
+.rating-card::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(181,18,27,0.7), rgba(0,0,0,0.0) 60%); mix-blend-mode: multiply; }
 .rating-title { position:absolute; left:12px; bottom:12px; color:#fff; font-weight:700; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
 
 /* Catalog layout */

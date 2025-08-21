@@ -408,6 +408,8 @@
       };
       function closeAll(){
         Object.keys(panels).forEach(function(k){ var p = panels[k]; if (p) p.classList.remove('open'); });
+        // mega-menu contrast fix
+        try { document.body.classList.remove('menu-open'); } catch(_){}
       }
       items.forEach(function(it){
         it.addEventListener('mouseenter', function(){
@@ -415,6 +417,8 @@
           var key = it.getAttribute('data-mega');
           var panel = panels[key];
           if (panel) panel.classList.add('open');
+          // mega-menu contrast fix
+          try { document.body.classList.add('menu-open'); } catch(_){}
         });
       });
       var megaBar = document.querySelector('.mega-bar');
