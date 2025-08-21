@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HOME APPLIANCE</title>
-    <link rel="icon" href="./assets/images/favicon.ico" />
+    <link rel="icon" href="https://miele-store.ru/favicon.ico" />
     <!-- GitHub Pages: canonical + OG for /shop-clone/ -->
     <link rel="canonical" href="https://shaposhvv.github.io/shop-clone/" />
     <meta property="og:url" content="https://shaposhvv.github.io/shop-clone/" />
@@ -32,18 +32,30 @@
             </nav>
           </div>
           <div class="ht-right">
+            <div class="worktime">Пн‑Пт 8:00–22:00 · Сб‑Вс 9:00–22:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="header-sub">
+        <div class="container header-sub-inner">
+          <div class="hs-left">
             <div class="phones">
               <a href="tel:+74955404475">+7 495 540 44 75</a>
               <span class="sep">·</span>
               <a href="tel:+78007756731">+7 800 775 67 31</a>
             </div>
-            <div class="worktime">Пн‑Пт 8:00–22:00 · Сб‑Вс 9:00–22:00</div>
+          </div>
+          <div class="hs-center">
+            <a class="showroom-btn" href="#">Шоу-рум</a>
+          </div>
+          <div class="hs-right">
+            <div class="sub-notes"><span>Время работы</span><span>Бесплатно по РФ</span></div>
           </div>
         </div>
       </div>
       <div class="container header-inner">
         <button class="icon-button menu-toggle" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false">☰</button>
-        <a class="logo" href="index.html" aria-label="HOME APPLIANCE">HOME APPLIANCE</a>
+        <a class="logo miele-logo" href="index.html" aria-label="Miele">Miele</a>
         <nav class="nav" id="site-nav" aria-label="Главное меню">
           <a href="catalog.html">Каталог</a>
           <a href="#">Акции</a>
@@ -60,8 +72,8 @@
           </form>
           <button class="icon-button theme-toggle" type="button" aria-label="Тёмная тема" title="Переключить тему">🌙</button>
           <a class="icon-button counter-link" aria-label="Сравнение" href="#"><span aria-hidden="true">⇄</span><span class="badge" id="cmp-count">0</span></a>
-          <a class="icon-button counter-link" aria-label="Избранное" href="#"><span aria-hidden="true">♥</span><span class="badge" id="fav-count">0</span></a>
-          <a href="cart.html" class="cart-link" aria-label="Корзина">Корзина <span id="cart-count" aria-live="polite">0</span></a>
+          <a class="icon-button counter-link" aria-label="Избранное" href="#"><span aria-hidden="true">♡</span><span class="badge" id="fav-count">0</span></a>
+          <a class="icon-button counter-link" aria-label="Корзина" href="cart.html"><span aria-hidden="true">🛒</span><span class="badge" id="cart-count" aria-live="polite">0</span></a>
         </div>
       </div>
       <div class="mega-bar" role="navigation" aria-label="Категории">
@@ -195,63 +207,100 @@
       <section class="section reveal">
         <div class="container">
           <h2>Популярные товары</h2>
-          <div class="products-grid">
-            <article class="product-card">
-              <div class="thumb"><img src="./assets/images/product1.jpg" alt="Духовой шкаф Miele H 7860 BP" loading="lazy" /></div>
-              <div class="content">
-                <div class="title">Духовой шкаф Miele H 7860 BP</div>
-                <div class="meta">Премиальная серия</div>
-              </div>
-              <div class="footer">
-                <div class="price">299 990 ₽</div>
-                <div class="actions">
-                  <a class="btn" href="product.html">Подробнее</a>
-                  <button class="btn primary add-to-cart" type="button" data-id="hp1" data-title="Духовой шкаф Miele H 7860 BP" data-price="299990" data-image="./assets/images/product1.jpg">В корзину</button>
+          <div class="h-carousel" data-carousel>
+            <button class="arrow prev h-prev" type="button" aria-label="Назад">‹</button>
+            <div class="h-track">
+              <article class="product-card">
+                <div class="badge-pill">В наличии</div>
+                <div class="thumb"><img src="./assets/images/product1.jpg" alt="Духовой шкаф Miele H 7860 BP" loading="lazy" /></div>
+                <div class="content">
+                  <div class="title">Духовой шкаф Miele H 7860 BP</div>
+                  <div class="meta">Премиальная серия</div>
                 </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="thumb"><img src="./assets/images/hero1.jpg" alt="Посудомоечная машина Miele G 5022 SCU" loading="lazy" /></div>
-              <div class="content">
-                <div class="title">Посудомоечная машина Miele G 5022 SCU</div>
-                <div class="meta">60 см, 5 программ</div>
-              </div>
-              <div class="footer">
-                <div class="price">149 990 ₽</div>
-                <div class="actions">
-                  <a class="btn" href="product.html">Подробнее</a>
-                  <button class="btn primary add-to-cart" type="button" data-id="hp2" data-title="Посудомоечная машина Miele G 5022 SCU" data-price="149990" data-image="./assets/images/hero1.jpg">В корзину</button>
+                <div class="footer">
+                  <div class="price">299 990 ₽</div>
+                  <div class="actions">
+                    <button class="icon-ghost add-to-cart" type="button" data-id="hp1" data-title="Духовой шкаф Miele H 7860 BP" data-price="299990" data-image="./assets/images/product1.jpg">🛒</button>
+                    <button class="icon-ghost" type="button" aria-label="Избранное">♡</button>
+                  </div>
                 </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="thumb"><img src="./assets/images/hero2.jpg" alt="Стиральная машина Miele WWD 120" loading="lazy" /></div>
-              <div class="content">
-                <div class="title">Стиральная машина Miele WWD 120</div>
-                <div class="meta">7 кг, фронтальная загрузка</div>
-              </div>
-              <div class="footer">
-                <div class="price">129 990 ₽</div>
-                <div class="actions">
-                  <a class="btn" href="product.html">Подробнее</a>
-                  <button class="btn primary add-to-cart" type="button" data-id="hp3" data-title="Стиральная машина Miele WWD 120" data-price="129990" data-image="./assets/images/hero2.jpg">В корзину</button>
+              </article>
+              <article class="product-card">
+                <div class="badge-pill">В наличии</div>
+                <div class="thumb"><img src="./assets/images/hero1.jpg" alt="Посудомоечная машина Miele G 5022 SCU" loading="lazy" /></div>
+                <div class="content">
+                  <div class="title">Посудомоечная машина Miele G 5022 SCU</div>
+                  <div class="meta">60 см, 5 программ</div>
                 </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="thumb"><img src="./assets/images/hero3.jpg" alt="Варочная панель Miele KM 7201 FR" loading="lazy" /></div>
-              <div class="content">
-                <div class="title">Варочная панель Miele KM 7201 FR</div>
-                <div class="meta">Индукционная</div>
-              </div>
-              <div class="footer">
-                <div class="price">119 990 ₽</div>
-                <div class="actions">
-                  <a class="btn" href="product.html">Подробнее</a>
-                  <button class="btn primary add-to-cart" type="button" data-id="hp4" data-title="Варочная панель Miele KM 7201 FR" data-price="119990" data-image="./assets/images/hero3.jpg">В корзину</button>
+                <div class="footer">
+                  <div class="price">149 990 ₽</div>
+                  <div class="actions">
+                    <button class="icon-ghost add-to-cart" type="button" data-id="hp2" data-title="Посудомоечная машина Miele G 5022 SCU" data-price="149990" data-image="./assets/images/hero1.jpg">🛒</button>
+                    <button class="icon-ghost" type="button" aria-label="Избранное">♡</button>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+              <article class="product-card">
+                <div class="badge-pill">В наличии</div>
+                <div class="thumb"><img src="./assets/images/hero2.jpg" alt="Стиральная машина Miele WWD 120" loading="lazy" /></div>
+                <div class="content">
+                  <div class="title">Стиральная машина Miele WWD 120</div>
+                  <div class="meta">7 кг, фронтальная загрузка</div>
+                </div>
+                <div class="footer">
+                  <div class="price">129 990 ₽</div>
+                  <div class="actions">
+                    <button class="icon-ghost add-to-cart" type="button" data-id="hp3" data-title="Стиральная машина Miele WWD 120" data-price="129990" data-image="./assets/images/hero2.jpg">🛒</button>
+                    <button class="icon-ghost" type="button" aria-label="Избранное">♡</button>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="badge-pill">В наличии</div>
+                <div class="thumb"><img src="./assets/images/hero3.jpg" alt="Варочная панель Miele KM 7201 FR" loading="lazy" /></div>
+                <div class="content">
+                  <div class="title">Варочная панель Miele KM 7201 FR</div>
+                  <div class="meta">Индукционная</div>
+                </div>
+                <div class="footer">
+                  <div class="price">119 990 ₽</div>
+                  <div class="actions">
+                    <button class="icon-ghost add-to-cart" type="button" data-id="hp4" data-title="Варочная панель Miele KM 7201 FR" data-price="119990" data-image="./assets/images/hero3.jpg">🛒</button>
+                    <button class="icon-ghost" type="button" aria-label="Избранное">♡</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <button class="arrow next h-next" type="button" aria-label="Вперёд">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Рейтинг техники -->
+      <section class="section reveal">
+        <div class="container">
+          <h2>Рейтинг техники Miele</h2>
+          <div class="h-carousel" data-carousel>
+            <button class="arrow prev h-prev" type="button" aria-label="Назад">‹</button>
+            <div class="h-track rating-track">
+              <a class="rating-card" href="#">
+                <img src="./assets/images/hero1.jpg" alt="Рейтинг холодильников" />
+                <div class="rating-title">Рейтинг лучших холодильников</div>
+              </a>
+              <a class="rating-card" href="#">
+                <img src="./assets/images/hero2.jpg" alt="Рейтинг стиральных" />
+                <div class="rating-title">Рейтинг лучших стиральных машин</div>
+              </a>
+              <a class="rating-card" href="#">
+                <img src="./assets/images/hero3.jpg" alt="Рейтинг духовых шкафов" />
+                <div class="rating-title">Рейтинг лучших духовых шкафов</div>
+              </a>
+              <a class="rating-card" href="#">
+                <img src="./assets/images/cat1.jpg" alt="Рейтинг посудомоек" />
+                <div class="rating-title">Рейтинг лучших посудомоечных машин</div>
+              </a>
+            </div>
+            <button class="arrow next h-next" type="button" aria-label="Вперёд">›</button>
           </div>
         </div>
       </section>

@@ -314,6 +314,24 @@
     syncCartCountFromStorage();
     bindAddToCartButtons();
     initHeroSlider();
+    // Init horizontal carousels
+    (function(){
+      var carousels = document.querySelectorAll('[data-carousel]');
+      if (!carousels || carousels.length === 0) return;
+      carousels.forEach(function (wrap) {
+        var track = wrap.querySelector('.h-track');
+        var prev = wrap.querySelector('.h-prev');
+        var next = wrap.querySelector('.h-next');
+        if (!track) return;
+        function scrollByCards(dir){
+          var card = track.querySelector('.product-card, .rating-card');
+          var dx = card ? (card.getBoundingClientRect().width + 16) : 300;
+          track.scrollBy({ left: dir * dx, behavior: 'smooth' });
+        }
+        if (prev) prev.addEventListener('click', function(){ scrollByCards(-1); });
+        if (next) next.addEventListener('click', function(){ scrollByCards(1); });
+      });
+    })();
 
     // Mark sections for reveal if not already
     document.querySelectorAll('.section').forEach(function (el) {
